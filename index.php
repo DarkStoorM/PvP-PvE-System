@@ -1,5 +1,6 @@
 <?php
 require("players.php");
+
 // This is a pseudo-draw function that allows both players attack themselves
 // If we had a conflict in the array
 function Draw($P1,$P2) {
@@ -63,25 +64,27 @@ for($i=1;$i<=$time_limit;$i++) {
 			case $player_turns[$i]==$player2->PlayerID: $player2->attack($player1); break;
 			case $player_turns[$i]=="Draw": Draw($player1, $player2); break;
 		}
-		if( ($player1->HP <=0) or ($player2->HP <=0)) {
-		// Remove negative numbers
-		if($player1->HP <0)
-			$player1->HP=0;
 		
-		if($player2->HP <0)
-			$player2->HP=0;
-		break;
-	}
+		if( ($player1->HP <=0) or ($player2->HP <=0)) {
+			// Remove negative numbers
+			if($player1->HP <0)
+				$player1->HP=0;
+			
+			if($player2->HP <0)
+				$player2->HP=0;
+				
+			// and break the loop if player was defeated
+			break;
+		}
 	}
 	
 	
 }
 
-
+// Winning conditions.
 if($player1->HP <=0 and $player2->HP<=0)
 	echo "Draw!";
 elseif($player2->HP<=0 and $player1->HP>=0)
 	echo "Player 1 wins!";
 elseif($player1->HP<=0 and $player2->HP>=0)
 	echo "Player 2 wins!";
-exit;
