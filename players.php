@@ -11,8 +11,6 @@ class Player {
 	public $PlayerID = null;
 	
 	public function __construct($info) {
-		srand($this->make_seed());
-		
 		$this -> HP = $info["HP"];
 		$this -> MinDMG = $info["MinDMG"];
 		$this -> MaxDMG = $info["MaxDMG"];
@@ -21,11 +19,6 @@ class Player {
 		$this -> Dodge = $info["Dodge"];
 		$this -> AttackSpeed = $info["AttackSpeed"];
 		$this -> PlayerID = $info["PlayerID"];
-	}
-	
-	public function make_seed() {
-	  list($usec, $sec) = explode(' ', microtime());
-	  return (float) $sec + ((float) $usec * 100000);
 	}
 	
 	public function attack($player) {
