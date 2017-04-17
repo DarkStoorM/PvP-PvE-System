@@ -11,5 +11,3 @@ You can remove optional Echos from the code. It was only for "debug" purposes.
 
 * * *
 I called it PvP/PvE from obvious reasons. You can use it also vs monsters.
-
-[PvP system explanation on my website.](http://darkstoorm.pl/pvp-pve-system/)
